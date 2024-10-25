@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "ReddFox",
+    "version": "1.0",
+    "description": "A Reddit archiver",
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "downloads"
+    ],
+    "host_permissions": [
+        "*://*.reddit.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.reddit.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
